@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #183b56;
+    }
+
+    p {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.4rem;
+      color: #577592;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin-inline: auto;
+      overflow: hidden;
+    }
+
+    nav {
+      background-color: #daedf5;
+      position: fixed;
+      box-shadow: 0 0 4px;
+      top: 0;
+      z-index: 99;
+      left: 0;
+      right: 0;
+      height: 95px;
+    }
+
+    .main-nav {
+      justify-content: space-between;
+      padding-block: 8px;
+      height: inherit;
+    }
+
+    .logo img {
+      width: 145px;
+height: 170px;    }
+
+    .nav-link ul {
+      gap: 16px;
+    }
+
+    .hover-link {
+      cursor: pointer;
+    }
+
+    .hover-link:hover {
+      color: rgb(127, 13, 241);
+    }
+
+    .hover-link:active {
+      color: red;
+    }
+
+    .nav-item.active {
+      color: #577592;
+    }
+
+    .search-bar {
+      height: 32px;
+      gap: 8px;
+    }
+
+    .news-input {
+      width: 200px;
+      height: 100%;
+      padding-block: 12px;
+      border-radius: 4px;
+      border: 2px solid white;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .search-button {
+      background-color: rgb(166, 166, 247);
+      color: white;
+      padding: 8px 24px;
+      border: none;
+      border-radius: 4px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .search-button:hover {
+      background-color: blue;
+    }
+
+    main {
+      padding-block: 20px;
+      margin-top: 110px;
+    }
+
+    #card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card {
+      width: 360px;
+      box-shadow: 0 0 4px #d4ecff;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      box-shadow: 1px 1px 8px #d4ecff;
+      background-color: #f9fdff;
+      transform: translateY(-2px);
+    }
+
+    .card-header img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 12px;
+    }
+
+    .news-source {
+      margin-block: 12px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="main-nav container flex">
+      <a href="#" onclick="reload()" class="logo">
+<img src="news-logo-png-transparent.png" alt="logo">
+      </a>
+      <div class="nav-link">
+        <ul class="flex">
+          <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+          <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+          <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+        </ul>
+      </div>
+      <div class="search-bar flex">
+        <input id="search-text" type="text" class="news-input" placeholder="e.g. IPL" />
+        <button id="search-button" class="search-button">Search</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div id="card-container" class="container"></div>
+  </main>
+
+  <template id="template-news-card">
+    <div class="card">
+      <div class="card-header">
+        <img id="news-img" src="" alt="news image" />
+      </div>
+      <div class="card-content">
+        <h3 id="news-title">Title here</h3>
+        <h6 class="news-source" id="news-source">Source · Date</h6>
+        <p class="news-desc" id="news-desc">Description here</p>
+      </div>
+    </div>
+  </template>
+
+  <script src="script1.js"></script>
+</body>
+</html>
